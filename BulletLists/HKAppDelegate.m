@@ -9,6 +9,7 @@
 #import "HKAppDelegate.h"
 
 #import "HKMasterViewController.h"
+#import "HKNoteManager.h"
 
 @implementation HKAppDelegate
 
@@ -19,6 +20,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [HKNoteManager setUpWithContext:self.managedObjectContext];
+    
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     HKMasterViewController *controller = (HKMasterViewController *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
