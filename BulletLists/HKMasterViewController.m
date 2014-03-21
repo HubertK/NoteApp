@@ -8,12 +8,12 @@
 
 // controllers
 #import "HKMasterViewController.h"
-#import "HKDetailViewController.h"
+#import "HKNoteController.h"
 
 //views
 
 //model objects
-#import "List.h"
+#import "Note.h"
 #import "Owner.h"
 
 //other
@@ -51,7 +51,7 @@
 }
 - (void)createNewNote:(id)sender{
      NSLog(@"%@",NSStringFromSelector(@selector(createNewNote:)));
-    List *newList = [NSEntityDescription insertNewObjectForEntityForName:@"List" inManagedObjectContext:self.fetchedResultsController.managedObjectContext];
+    Note *newList = [NSEntityDescription insertNewObjectForEntityForName:@"List" inManagedObjectContext:self.fetchedResultsController.managedObjectContext];
     newList.title = [NSString stringWithFormat:@"This is a list. #%d",[self numberOfEnities:@"List"]];
     newList.content = [[NSString baconIpsum] dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
@@ -118,13 +118,6 @@
     return NO;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        [[segue destinationViewController] setDetailItem:object];
-    }
-}
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     
     return self.addNoteFooterView;
@@ -230,7 +223,7 @@
  */
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath{
-    List *list = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Note *list = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = list.title;
     
     static NSDateFormatter *dateFormatter = nil;
@@ -243,7 +236,16 @@
 }
 
 
-
+#pragma -mark
+#pragma mark segue
+#pragma -mark
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"notecontroller segue"]) {
+        HKNoteController *noteController = (HKNoteController*)segue.destinationViewController;
+        Note *note = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
+        [noteController setNote:note];
+    }
+}
 
 
 

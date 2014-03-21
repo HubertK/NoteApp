@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Hubert Kunnemeyer. All rights reserved.
 //
 
-#import "List.h"
+#import "Note.h"
 
 
-@implementation List
+@implementation Note
 
 @dynamic creationDate;
 @dynamic text;

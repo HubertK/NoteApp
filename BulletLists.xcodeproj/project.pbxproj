@@ -17,7 +17,6 @@
 		395DD81B18C2456700420D83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 395DD81918C2456700420D83 /* Main.storyboard */; };
 		395DD81E18C2456700420D83 /* BulletLists.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 395DD81C18C2456700420D83 /* BulletLists.xcdatamodeld */; };
 		395DD82118C2456700420D83 /* HKMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395DD82018C2456700420D83 /* HKMasterViewController.m */; };
-		395DD82418C2456700420D83 /* HKDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395DD82318C2456700420D83 /* HKDetailViewController.m */; };
 		395DD82618C2456700420D83 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 395DD82518C2456700420D83 /* Images.xcassets */; };
 		395DD82D18C2456700420D83 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 395DD82C18C2456700420D83 /* XCTest.framework */; };
 		395DD82E18C2456700420D83 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 395DD80518C2456700420D83 /* Foundation.framework */; };
@@ -26,10 +25,11 @@
 		395DD83818C2456700420D83 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 395DD83618C2456700420D83 /* InfoPlist.strings */; };
 		395DD83A18C2456700420D83 /* BulletListsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 395DD83918C2456700420D83 /* BulletListsTests.m */; };
 		395DD84518C24F6100420D83 /* HKNoteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395DD84418C24F6100420D83 /* HKNoteController.m */; };
-		395DD84818C2515300420D83 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 395DD84718C2515300420D83 /* List.m */; };
+		395DD84818C2515300420D83 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 395DD84718C2515300420D83 /* Note.m */; };
 		395DD84B18C2515400420D83 /* Owner.m in Sources */ = {isa = PBXBuildFile; fileRef = 395DD84A18C2515400420D83 /* Owner.m */; };
 		395DD84F18C253F800420D83 /* NSString+Ipsum.m in Sources */ = {isa = PBXBuildFile; fileRef = 395DD84E18C253F800420D83 /* NSString+Ipsum.m */; };
 		395DD85218C256D100420D83 /* HKNoteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 395DD85118C256D100420D83 /* HKNoteManager.m */; };
+		39B829A618D4CAFB005A273D /* HKTSimpleControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B829A518D4CAFB005A273D /* HKTSimpleControllerViewController.m */; };
 		39B9A01118CB8C1C00F4FBF8 /* HKTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B9A01018CB8C1C00F4FBF8 /* HKTextView.m */; };
 /* End PBXBuildFile section */
 
@@ -59,8 +59,6 @@
 		395DD81D18C2456700420D83 /* BulletLists.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BulletLists.xcdatamodel; sourceTree = "<group>"; };
 		395DD81F18C2456700420D83 /* HKMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKMasterViewController.h; sourceTree = "<group>"; };
 		395DD82018C2456700420D83 /* HKMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKMasterViewController.m; sourceTree = "<group>"; };
-		395DD82218C2456700420D83 /* HKDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKDetailViewController.h; sourceTree = "<group>"; };
-		395DD82318C2456700420D83 /* HKDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKDetailViewController.m; sourceTree = "<group>"; };
 		395DD82518C2456700420D83 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		395DD82B18C2456700420D83 /* BulletListsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BulletListsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		395DD82C18C2456700420D83 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -69,14 +67,16 @@
 		395DD83918C2456700420D83 /* BulletListsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BulletListsTests.m; sourceTree = "<group>"; };
 		395DD84318C24F6100420D83 /* HKNoteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKNoteController.h; sourceTree = "<group>"; };
 		395DD84418C24F6100420D83 /* HKNoteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKNoteController.m; sourceTree = "<group>"; };
-		395DD84618C2515300420D83 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
-		395DD84718C2515300420D83 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
+		395DD84618C2515300420D83 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		395DD84718C2515300420D83 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		395DD84918C2515400420D83 /* Owner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Owner.h; sourceTree = "<group>"; };
 		395DD84A18C2515400420D83 /* Owner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Owner.m; sourceTree = "<group>"; };
 		395DD84D18C253F800420D83 /* NSString+Ipsum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Ipsum.h"; sourceTree = "<group>"; };
 		395DD84E18C253F800420D83 /* NSString+Ipsum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Ipsum.m"; sourceTree = "<group>"; };
 		395DD85018C256D100420D83 /* HKNoteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKNoteManager.h; sourceTree = "<group>"; };
 		395DD85118C256D100420D83 /* HKNoteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKNoteManager.m; sourceTree = "<group>"; };
+		39B829A418D4CAFB005A273D /* HKTSimpleControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKTSimpleControllerViewController.h; sourceTree = "<group>"; };
+		39B829A518D4CAFB005A273D /* HKTSimpleControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKTSimpleControllerViewController.m; sourceTree = "<group>"; };
 		39B9A00F18CB8C1C00F4FBF8 /* HKTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKTextView.h; sourceTree = "<group>"; };
 		39B9A01018CB8C1C00F4FBF8 /* HKTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKTextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,10 +150,9 @@
 				395DD82018C2456700420D83 /* HKMasterViewController.m */,
 				395DD84318C24F6100420D83 /* HKNoteController.h */,
 				395DD84418C24F6100420D83 /* HKNoteController.m */,
-				395DD82218C2456700420D83 /* HKDetailViewController.h */,
-				395DD82318C2456700420D83 /* HKDetailViewController.m */,
 				39B9A00F18CB8C1C00F4FBF8 /* HKTextView.h */,
 				39B9A01018CB8C1C00F4FBF8 /* HKTextView.m */,
+				39B829A718D4CB03005A273D /* Debug/Tmp Objects */,
 				39B9A00D18CB7FB200F4FBF8 /* Categories */,
 				39B9A00E18CB7FC700F4FBF8 /* Resources */,
 				395DD84C18C2516000420D83 /* Database */,
@@ -197,10 +196,19 @@
 				395DD81C18C2456700420D83 /* BulletLists.xcdatamodeld */,
 				395DD84918C2515400420D83 /* Owner.h */,
 				395DD84A18C2515400420D83 /* Owner.m */,
-				395DD84618C2515300420D83 /* List.h */,
-				395DD84718C2515300420D83 /* List.m */,
+				395DD84618C2515300420D83 /* Note.h */,
+				395DD84718C2515300420D83 /* Note.m */,
 			);
 			name = Database;
+			sourceTree = "<group>";
+		};
+		39B829A718D4CB03005A273D /* Debug/Tmp Objects */ = {
+			isa = PBXGroup;
+			children = (
+				39B829A418D4CAFB005A273D /* HKTSimpleControllerViewController.h */,
+				39B829A518D4CAFB005A273D /* HKTSimpleControllerViewController.m */,
+			);
+			name = "Debug/Tmp Objects";
 			sourceTree = "<group>";
 		};
 		39B9A00D18CB7FB200F4FBF8 /* Categories */ = {
@@ -318,8 +326,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				395DD84818C2515300420D83 /* List.m in Sources */,
+				395DD84818C2515300420D83 /* Note.m in Sources */,
 				395DD84F18C253F800420D83 /* NSString+Ipsum.m in Sources */,
+				39B829A618D4CAFB005A273D /* HKTSimpleControllerViewController.m in Sources */,
 				395DD81418C2456700420D83 /* main.m in Sources */,
 				395DD82118C2456700420D83 /* HKMasterViewController.m in Sources */,
 				395DD84518C24F6100420D83 /* HKNoteController.m in Sources */,
@@ -328,7 +337,6 @@
 				395DD85218C256D100420D83 /* HKNoteManager.m in Sources */,
 				395DD84B18C2515400420D83 /* Owner.m in Sources */,
 				395DD81818C2456700420D83 /* HKAppDelegate.m in Sources */,
-				395DD82418C2456700420D83 /* HKDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

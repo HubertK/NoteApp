@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Note.h"
 
 @interface HKNoteController : UIViewController
-
+@property (strong, nonatomic) Note *note;
 @end

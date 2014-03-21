@@ -10,6 +10,7 @@
 #import "HKTextView.h"
 
 @interface HKNoteController ()<UITextViewDelegate,HKTextViewDelegate,NSLayoutManagerDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *menuButton;
 @property (weak, nonatomic) IBOutlet HKTextView *textView;
 
 @end
@@ -45,6 +46,8 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)openSettingsMenu:(id)sender {
 }
 - (NSArray *)possibleBullets{
     return @[@"\u2022",

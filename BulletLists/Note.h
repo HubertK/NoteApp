@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 
 
-@interface List : NSManagedObject
+@interface Note : NSManagedObject
 
 @property (nonatomic, retain) NSDate * creationDate;
 @property (nonatomic, retain) NSString * text;

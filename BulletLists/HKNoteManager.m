@@ -8,7 +8,7 @@
 
 #import "HKNoteManager.h"
 
-#import "List.h"
+#import "Note.h"
 
 @implementation HKNoteManager
 
@@ -37,13 +37,13 @@
         [noContextExc raise];
     }
 }
-+ (BOOL)addNewList:(List *)list{
++ (BOOL)addNewList:(Note *)list{
     BOOL ok = NO;
     // add saving code here
     return ok;
 }
 
-+ (BOOL)deleteList:(List *)list{
++ (BOOL)deleteList:(Note *)list{
     BOOL ok  = NO;
     //add deletion code here
     return ok;
@@ -60,14 +60,14 @@
     NSDate *modDate = [NSDate date];
     // Filter the objects to only incluse List* objects
     NSPredicate *listsOnlyFilter = [NSPredicate predicateWithBlock:^BOOL(NSManagedObject *object, NSDictionary *bindings) {
-        return [object isKindOfClass:[List class]];
+        return [object isKindOfClass:[Note class]];
     }];
     
     // inserted
     NSSet *insertedLists = [[context insertedObjects] filteredSetUsingPredicate:listsOnlyFilter];
     for (NSManagedObject *obj in insertedLists) {
         // inserted get a creation date also
-            List *list = (List *)obj;
+            Note *list = (Note *)obj;
             list.creationDate = modDate;
             list.lastModified = modDate;
     }
@@ -75,7 +75,7 @@
     //updated
     NSSet *updatedLsts = [[context updatedObjects] filteredSetUsingPredicate:listsOnlyFilter];
     for (NSManagedObject *obj in updatedLsts) {
-            List *list = (List *)obj;
+            Note *list = (Note *)obj;
             list.lastModified = modDate;
     }
 }

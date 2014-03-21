@@ -5,6 +5,7 @@
 //  Created by Hubert Kunnemeyer on 3/1/14.
 //  Copyright (c) 2014 Hubert Kunnemeyer. All rights reserved.
 //
+#define Debug_Configuration 1
 
 #import "HKAppDelegate.h"
 
@@ -19,12 +20,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+#if Debug_Configuration
+    NSLog(@"using testing configuration");
+    return YES;
+#else
+    
+    
     // Override point for customization after application launch.
     [HKNoteManager setUpWithContext:self.managedObjectContext];
     
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     HKMasterViewController *controller = (HKMasterViewController *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
+#endif
     return YES;
 }
 							

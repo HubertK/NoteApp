@@ -10,4 +10,5 @@
 
 @interface NSString (Ipsum)
 + (NSString *)baconIpsum;
++ (NSString *)trollemIpsum;
 @end
