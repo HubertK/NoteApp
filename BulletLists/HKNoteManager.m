@@ -9,6 +9,7 @@
 #import "HKNoteManager.h"
 
 #import "Note.h"
+#import "Owner.h"
 
 @implementation HKNoteManager
 
@@ -57,7 +58,10 @@
 - (void)managedObjectContextSaveNotification:(NSNotification *)notification{
 
     NSManagedObjectContext *context = [notification object];
+    
+    // automatic mod date setting and updates
     NSDate *modDate = [NSDate date];
+    
     // Filter the objects to only incluse List* objects
     NSPredicate *listsOnlyFilter = [NSPredicate predicateWithBlock:^BOOL(NSManagedObject *object, NSDictionary *bindings) {
         return [object isKindOfClass:[Note class]];

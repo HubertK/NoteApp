@@ -5,7 +5,8 @@
 //  Created by Hubert Kunnemeyer on 3/1/14.
 //  Copyright (c) 2014 Hubert Kunnemeyer. All rights reserved.
 //
-#define Debug_Configuration 1
+
+#define Debug_Configuration 0
 
 #import "HKAppDelegate.h"
 
@@ -32,6 +33,7 @@
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     HKMasterViewController *controller = (HKMasterViewController *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
+    return YES;
 #endif
     return YES;
 }

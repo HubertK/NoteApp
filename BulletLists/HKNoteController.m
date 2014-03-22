@@ -12,7 +12,6 @@
 @interface HKNoteController ()<UITextViewDelegate,HKTextViewDelegate,NSLayoutManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
 @property (weak, nonatomic) IBOutlet HKTextView *textView;
-
 @end
 
 @implementation HKNoteController
@@ -30,16 +29,24 @@
 {
     [super viewDidLoad];
     self.textView.delegate = self;
+    self.textView.layoutManager.delegate = self;
     self.textView.customDelegate = self;
     
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.textView.text = self.note.text;
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self saveNote];
 }
 #pragma -mark
 #pragma mark HKTextView (didPressTab:)
 #pragma -mark
 - (void)textView:(HKTextView *)textView didPressTab:(id)sender{
-    NSInteger rndIndx = arc4random() % ([[self possibleBullets]count] - 1) + 1; //create the random number.
 
-    NSString *tabbedBullet = [NSString stringWithFormat:@"\t%@",[self possibleBullets][rndIndx]];
+    NSString *tabbedBullet = [NSString stringWithFormat:@"\t%@",[self bullet]];
     [self.textView insertText:tabbedBullet];
 }
 - (void)didReceiveMemoryWarning
@@ -48,31 +55,55 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)openSettingsMenu:(id)sender {
+    [self enumerateGlyphs];
 }
-- (NSArray *)possibleBullets{
-    return @[@"\u2022",
-             @"\u2023",
-             @"\u2043",
-             @"\u25E6",
-             @"\u2219",
-             @"\u29BF",
-             @"\u29BE",
-             @"\u25A1",
-             @"\u25A0",
-             @"\u25AB",
-             @"\u25AA"];
-    /*
-     • Plain bullet point  - U+2022
-     ‣ Triangular bullet  - U+2023
-     ⁃ Hyphenated bullet - U+2043
-     ◦ White bullet - U+25E6
-     ∙ bullet operator - U+2219
-     ⦿ Circled bullet - U+29BF
-     ⦾ Circled-white bullet - U+29BE
-     □ White square - U+25A1
-     ■ Black square - U+25A0
-     ▫ Small white square - U+25AB
-     ▪ Small black square U+25AA
-*/
+- (void)enumerateGlyphs{
+    
+    NSRange textRange = NSMakeRange(0, self.textView.text.length);
+    [self.textView.layoutManager enumerateLineFragmentsForGlyphRange:textRange usingBlock:^(CGRect rect, CGRect usedRect, NSTextContainer *textContainer, NSRange glyphRange, BOOL *stop) {
+        NSString *line = [self.textView.text substringWithRange:glyphRange];
+        NSLog(@"LINE:\n%@",line);
+    }];
 }
+- (NSString *)bullet{
+    return @"\u2022";
+}
+- (void)saveNote{
+    NSManagedObjectContext *managedObjectContext = self.note.managedObjectContext;
+    self.note.text = self.textView.text;
+    NSError *noteSavingError = nil;
+    BOOL saved = [managedObjectContext save:&noteSavingError];
+    if (!saved && noteSavingError != nil) {
+        NSLog(@"\n\nError saving Note usin Moc:%@\nERROR:%@\n\n",[managedObjectContext description],[noteSavingError localizedDescription]);
+    }
+    
+}
+
+
+
+
+- (BOOL)isNewLine{
+    return NO;
+}
+- (BOOL)isPartOfList{
+    return NO;
+}
+- (BOOL)shouldIndentLineFragmentInRange:(NSRange)range{
+    return NO;
+}
+- (NSInteger)indentationLevelForLineFragmentInRange:(NSRange)rangeOfLine{
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 @end

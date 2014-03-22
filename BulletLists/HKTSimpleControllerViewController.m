@@ -47,8 +47,7 @@ typedef NS_ENUM(NSInteger, AnimationType){
 }
 
 - (IBAction)didChangeAnimationType:(id)sender {
-    // cast really not needed
-    self.animationType = (AnimationType)self.animationTypeControl.selectedSegmentIndex;
+    self.animationType = self.animationTypeControl.selectedSegmentIndex;
     [self performAnimation:self.animationType];
 }
 
@@ -58,18 +57,24 @@ typedef NS_ENUM(NSInteger, AnimationType){
     }
 }
 - (void)animateString{
+    self.textLayer = [CATextLayer layer];
+    [self.textLayer setString:@"Foo"];
+    [self.textLayer setForegroundColor:[UIColor redColor].CGColor];
+    [self.textLayer setFont:(__bridge CFTypeRef)((id)[UIFont systemFontOfSize:50])];
+    [self.textLayer setFrame:CGRectMake(100, 150, 100, 60)];
+    [[self.view layer] addSublayer:self.textLayer];
     CGFloat animationDuration = 5.0;
     CABasicAnimation *colorAnimation = [CABasicAnimation
-                                        animationWithKeyPath:@"foregroundColor"];
+                                        animationWithKeyPath:@"fontSize"];
     colorAnimation.duration = animationDuration;
     colorAnimation.fillMode = kCAFillModeForwards;
     colorAnimation.removedOnCompletion = NO;
-    colorAnimation.fromValue = (id)[UIColor redColor].CGColor;
-    colorAnimation.toValue = (id)[UIColor blueColor].CGColor;
+    colorAnimation.fromValue = [NSNumber numberWithFloat:50];
+    colorAnimation.toValue = [NSNumber numberWithFloat:100];
     colorAnimation.timingFunction = [CAMediaTimingFunction
                                      functionWithName:kCAMediaTimingFunctionLinear];
     [self.textLayer addAnimation:colorAnimation
-                     forKey:@"colorAnimation"];
+                     forKey:@"fontAnimation"];
     [self.textLayer setNeedsLayout];
 
    

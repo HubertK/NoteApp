@@ -51,8 +51,8 @@
 }
 - (void)createNewNote:(id)sender{
      NSLog(@"%@",NSStringFromSelector(@selector(createNewNote:)));
-    Note *newList = [NSEntityDescription insertNewObjectForEntityForName:@"List" inManagedObjectContext:self.fetchedResultsController.managedObjectContext];
-    newList.title = [NSString stringWithFormat:@"This is a list. #%d",[self numberOfEnities:@"List"]];
+    Note *newList = [NSEntityDescription insertNewObjectForEntityForName:@"Note" inManagedObjectContext:self.fetchedResultsController.managedObjectContext];
+    newList.title = [NSString stringWithFormat:@"This is a list. #%d",[self numberOfEnities:@"Note"]];
     newList.content = [[NSString baconIpsum] dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
     [self.managedObjectContext save:&error];
@@ -137,7 +137,7 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"List" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Note" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
