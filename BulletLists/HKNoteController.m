@@ -8,6 +8,7 @@
 
 #import "HKNoteController.h"
 #import "HKTextView.h"
+#import "HKSettingTableViewController.h"
 
 @interface HKNoteController ()<UITextViewDelegate,HKTextViewDelegate,NSLayoutManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
@@ -55,7 +56,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)openSettingsMenu:(id)sender {
-    [self enumerateGlyphs];
+    
 }
 - (void)enumerateGlyphs{
     
@@ -79,7 +80,15 @@
     
 }
 
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"show settings"]) {
+        Owner *owner = [NSEntityDescription insertNewObjectForEntityForName:@"Owner" inManagedObjectContext:self.note.managedObjectContext];
+        owner.userName = @"Hubiedoo517";
+        owner.firstName = @"Hubert";
+        owner.lastName = @"Kunnemeyer";
+        [segue.destinationViewController setOwner:owner];
+    }
+}
 
 
 - (BOOL)isNewLine{

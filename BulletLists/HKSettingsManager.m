@@ -7,13 +7,15 @@
 //
 
 NSString * const userDefaultsSettingsKey = @"com.hubertk.notesapp.%@";
+NSString * const bulletListKey = @"UserBulletListKey";
 
 
 #import "Owner.h"
 #import "HKSettingsManager.h"
 
 @interface HKSettingsManager ()
-@property (strong, nonatomic) NSDictionary *userDefaults;
+@property (strong, nonatomic) NSMutableDictionary *userDefaults;
+
 @end
 
 @implementation HKSettingsManager
@@ -54,24 +56,62 @@ NSString * const userDefaultsSettingsKey = @"com.hubertk.notesapp.%@";
  
  
  */
+- (NSArray *)defaultBullets{
+    
+    return @[@{@"\u2022":@"Plain bullet point"},
+             @{@"\u2023":@"Triangular bullet"},
+             @{@"\u2043":@"Hyphenated bullet"},
+             @{@"\u25E6":@"White bullet"},
+             @{@"\u2219":@"Bullet operator"},
+             @{@"\u29BF":@"Circled bullet"},
+             @{@"\u29BE":@"Circled-white bullet"},
+             @{@"\u25A1":@"White square"},
+             @{@"\u25A0":@"Black square "},
+             @{@"\u25AB":@"Small white square"},
+             @{@"\u25AA":@"Small black square"}];
+}
 
 - (instancetype)initSettingsForOwner:(Owner *)owner{
     self = [super init];
     if (self) {
-        NSString *key = [NSString stringWithFormat:@"com.hubertk.notesapp.userKey.%@%",owner.userName];
-        _userDefaults = [[NSUserDefaults standardUserDefaults]objectForKey:key];
+        _owner = owner;
+        NSString *key = [NSString stringWithFormat:userDefaultsSettingsKey,owner.userName];
+        if (![[NSUserDefaults standardUserDefaults]objectForKey:key]) {
+            [self setUpDefaultsDefaultsForKey:key];
+        }else{
+        _userDefaults = [[[NSUserDefaults standardUserDefaults]objectForKey:key]mutableCopy];
+        }
     }
     return self;
 }
++ (instancetype)settingsManagerForOwner:(Owner *)owner{
+    return [[self alloc]initSettingsForOwner:owner];
+}
 
+- (NSArray *)bullets{
+    return [self.userDefaults objectForKey:bulletListKey];
+}
 
-
-
-
-
-
-
-
+- (void)setNewBulletList:(NSArray *)newBulletList{
+    [self.userDefaults setValue:newBulletList forKey:bulletListKey];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    [self save];
+}
+- (void)save{
+    NSString *key = [NSString stringWithFormat:userDefaultsSettingsKey,self.owner.userName];
+    [[NSUserDefaults standardUserDefaults]setObject:self.userDefaults forKey:key];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+}
+#pragma -mark
+#pragma mark Defaults defaults
+#pragma -mark
+- (void)setUpDefaultsDefaultsForKey:(NSString *)key{
+    self.userDefaults = [NSMutableDictionary dictionaryWithObjectsAndKeys:[self defaultBullets] ,bulletListKey, nil];
+    // @{bulletListKey : [self defaultBullets]};
+    [[NSUserDefaults standardUserDefaults]setObject:self.userDefaults forKey:key];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+   
+}
 
 
 

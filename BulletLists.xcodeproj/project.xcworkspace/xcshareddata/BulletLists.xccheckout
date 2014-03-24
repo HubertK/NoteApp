@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>B7132B25-F843-496A-B53F-2BFF0A1C1FE4</string>
+	<string>013473AC-E511-41C6-AA0D-C9A200EF77B5</string>
 	<key>IDESourceControlProjectName</key>
 	<string>BulletLists</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>1E7192DB-EE87-4E33-9450-5B158EC120FA</key>
-		<string>https://github.com/HubertK/NoteApp</string>
+		<key>9FE6B7AC-E380-463E-9902-DD3BECC98340</key>
+		<string>https://github.com/HubertK/NoteApp/</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>BulletLists.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>1E7192DB-EE87-4E33-9450-5B158EC120FA</key>
+		<key>9FE6B7AC-E380-463E-9902-DD3BECC98340</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/HubertK/NoteApp</string>
+	<string>https://github.com/HubertK/NoteApp/</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>1E7192DB-EE87-4E33-9450-5B158EC120FA</string>
+	<string>9FE6B7AC-E380-463E-9902-DD3BECC98340</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1E7192DB-EE87-4E33-9450-5B158EC120FA</string>
+			<string>9FE6B7AC-E380-463E-9902-DD3BECC98340</string>
 			<key>IDESourceControlWCCName</key>
-			<string>NoteApp</string>
+			<string>BulletLists</string>
 		</dict>
 	</array>
 </dict>

@@ -31,6 +31,7 @@
 		395DD85218C256D100420D83 /* HKNoteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 395DD85118C256D100420D83 /* HKNoteManager.m */; };
 		39B829A618D4CAFB005A273D /* HKTSimpleControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B829A518D4CAFB005A273D /* HKTSimpleControllerViewController.m */; };
 		39B9A01118CB8C1C00F4FBF8 /* HKTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B9A01018CB8C1C00F4FBF8 /* HKTextView.m */; };
+		39D470C718DE732C00BFCE2E /* HKSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D470C618DE732C00BFCE2E /* HKSettingTableViewController.m */; };
 		B724688218DE07430006E67C /* HKSettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B724688118DE07430006E67C /* HKSettingsManager.m */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,8 @@
 		39B829A518D4CAFB005A273D /* HKTSimpleControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKTSimpleControllerViewController.m; sourceTree = "<group>"; };
 		39B9A00F18CB8C1C00F4FBF8 /* HKTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKTextView.h; sourceTree = "<group>"; };
 		39B9A01018CB8C1C00F4FBF8 /* HKTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKTextView.m; sourceTree = "<group>"; };
+		39D470C518DE732C00BFCE2E /* HKSettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKSettingTableViewController.h; sourceTree = "<group>"; };
+		39D470C618DE732C00BFCE2E /* HKSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKSettingTableViewController.m; sourceTree = "<group>"; };
 		B724688018DE07430006E67C /* HKSettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKSettingsManager.h; sourceTree = "<group>"; };
 		B724688118DE07430006E67C /* HKSettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKSettingsManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,6 +158,8 @@
 				395DD84418C24F6100420D83 /* HKNoteController.m */,
 				B724688018DE07430006E67C /* HKSettingsManager.h */,
 				B724688118DE07430006E67C /* HKSettingsManager.m */,
+				39D470C518DE732C00BFCE2E /* HKSettingTableViewController.h */,
+				39D470C618DE732C00BFCE2E /* HKSettingTableViewController.m */,
 				39B9A00F18CB8C1C00F4FBF8 /* HKTextView.h */,
 				39B9A01018CB8C1C00F4FBF8 /* HKTextView.m */,
 				39B829A718D4CB03005A273D /* Debug/Tmp Objects */,
@@ -332,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				395DD84818C2515300420D83 /* Note.m in Sources */,
+				39D470C718DE732C00BFCE2E /* HKSettingTableViewController.m in Sources */,
 				395DD84F18C253F800420D83 /* NSString+Ipsum.m in Sources */,
 				39B829A618D4CAFB005A273D /* HKTSimpleControllerViewController.m in Sources */,
 				395DD81418C2456700420D83 /* main.m in Sources */,

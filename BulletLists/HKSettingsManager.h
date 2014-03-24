@@ -10,12 +10,19 @@
 
 
 NSString * const userDefaultsSettingsKey;
+NSString * const bulletListKey;
 
 
 @class Owner;
 
 @interface HKSettingsManager : NSObject
 
-- (instancetype)initSettingsForOwner:(Owner *)owner;
+@property (strong, nonatomic) Owner *owner;
 
+- (instancetype)initSettingsForOwner:(Owner *)owner;
++ (instancetype)settingsManagerForOwner:(Owner *)owner;
+
+- (NSArray *)bullets;
+- (NSArray *)defaultBullets;
+- (void)setNewBulletList:(NSArray *)newBulletList;
 @end
