@@ -9,10 +9,13 @@
 #import "HKNoteController.h"
 #import "HKTextView.h"
 #import "HKSettingTableViewController.h"
+#import "HKTextStoage.h"
 
 @interface HKNoteController ()<UITextViewDelegate,HKTextViewDelegate,NSLayoutManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
-@property (weak, nonatomic) IBOutlet HKTextView *textView;
+@property (strong, nonatomic) IBOutlet HKTextView *textView;
+@property (strong, nonatomic) HKTextStoage *textStorage;
+
 @end
 
 @implementation HKNoteController
@@ -26,17 +29,40 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
-    self.textView.delegate = self;
-    self.textView.layoutManager.delegate = self;
+    NSDictionary* attrs = @{NSFontAttributeName:
+                                [UIFont systemFontOfSize:16]};
+    NSAttributedString* attrString = [[NSAttributedString alloc]
+                                      initWithString:self.note.text
+                                      attributes:attrs];
+    _textStorage = [HKTextStoage new];
+    [_textStorage appendAttributedString:attrString];
+    
+    CGFloat topOffset = self.navigationController.navigationBar.frame.size.height + [UIApplication sharedApplication].statusBarFrame.size.height;
+    CGRect textViewRect = CGRectMake(0, topOffset, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)-topOffset);
+    
+    
+    // 2. Create the layout manager
+    NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
+    layoutManager.delegate = self;
+    // 3. Create a text container
+    CGSize containerSize = CGSizeMake(textViewRect.size.width,  CGFLOAT_MAX);
+    NSTextContainer *container = [[NSTextContainer alloc] initWithSize:containerSize];
+    container.widthTracksTextView = YES;
+    [layoutManager addTextContainer:container];
+    [_textStorage addLayoutManager:layoutManager];
+    
+    // 4. Create a UITextView
+    _textView = [[HKTextView alloc] initWithFrame:textViewRect
+                                    textContainer:container];
+    _textView.delegate = self;
     self.textView.customDelegate = self;
+    [self.view addSubview:_textView];
     
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.textView.text = self.note.text;
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -46,9 +72,8 @@
 #pragma mark HKTextView (didPressTab:)
 #pragma -mark
 - (void)textView:(HKTextView *)textView didPressTab:(id)sender{
-
-    NSString *tabbedBullet = [NSString stringWithFormat:@"\t%@",[self bullet]];
-    [self.textView insertText:tabbedBullet];
+    [textView insertText:@"\t•"];
+    [self.textStorage addBulletPointStyle];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -107,8 +132,18 @@
 
 
 
-
-
+//- (CGFloat)layoutManager:(NSLayoutManager *)layoutManager paragraphSpacingAfterGlyphAtIndex:(NSUInteger)glyphIndex withProposedLineFragmentRect:(CGRect)rect{
+//     NSLog(@"layoutspacingfrag");
+//    return 0;
+//}
+//- (CGFloat)layoutManager:(NSLayoutManager *)layoutManager paragraphSpacingBeforeGlyphAtIndex:(NSUInteger)glyphIndex withProposedLineFragmentRect:(CGRect)rect{
+//     NSLog(@"pars spacing before");
+//    return 2;
+//    
+//}
+//- (CGFloat)layoutManager:(NSLayoutManager *)layoutManager lineSpacingAfterGlyphAtIndex:(NSUInteger)glyphIndex withProposedLineFragmentRect:(CGRect)rect{
+//    return 0;
+//}
 
 
 

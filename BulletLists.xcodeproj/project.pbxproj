@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3945D82E18EC8A3800F38678 /* HKTConceptsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3945D82D18EC8A3800F38678 /* HKTConceptsController.m */; };
 		395DD80618C2456700420D83 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 395DD80518C2456700420D83 /* Foundation.framework */; };
 		395DD80818C2456700420D83 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 395DD80718C2456700420D83 /* CoreGraphics.framework */; };
 		395DD80A18C2456700420D83 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 395DD80918C2456700420D83 /* UIKit.framework */; };
@@ -29,6 +30,7 @@
 		395DD84B18C2515400420D83 /* Owner.m in Sources */ = {isa = PBXBuildFile; fileRef = 395DD84A18C2515400420D83 /* Owner.m */; };
 		395DD84F18C253F800420D83 /* NSString+Ipsum.m in Sources */ = {isa = PBXBuildFile; fileRef = 395DD84E18C253F800420D83 /* NSString+Ipsum.m */; };
 		395DD85218C256D100420D83 /* HKNoteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 395DD85118C256D100420D83 /* HKNoteManager.m */; };
+		3998A09918E7218300FC41DD /* HKTextStoage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3998A09818E7218300FC41DD /* HKTextStoage.m */; };
 		39B829A618D4CAFB005A273D /* HKTSimpleControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B829A518D4CAFB005A273D /* HKTSimpleControllerViewController.m */; };
 		39B9A01118CB8C1C00F4FBF8 /* HKTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B9A01018CB8C1C00F4FBF8 /* HKTextView.m */; };
 		39D470C718DE732C00BFCE2E /* HKSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D470C618DE732C00BFCE2E /* HKSettingTableViewController.m */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3945D82C18EC8A3800F38678 /* HKTConceptsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKTConceptsController.h; sourceTree = "<group>"; };
+		3945D82D18EC8A3800F38678 /* HKTConceptsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKTConceptsController.m; sourceTree = "<group>"; };
 		395DD80218C2456700420D83 /* BulletLists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BulletLists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		395DD80518C2456700420D83 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		395DD80718C2456700420D83 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -77,6 +81,8 @@
 		395DD84E18C253F800420D83 /* NSString+Ipsum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Ipsum.m"; sourceTree = "<group>"; };
 		395DD85018C256D100420D83 /* HKNoteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKNoteManager.h; sourceTree = "<group>"; };
 		395DD85118C256D100420D83 /* HKNoteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKNoteManager.m; sourceTree = "<group>"; };
+		3998A09718E7218300FC41DD /* HKTextStoage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKTextStoage.h; sourceTree = "<group>"; };
+		3998A09818E7218300FC41DD /* HKTextStoage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKTextStoage.m; sourceTree = "<group>"; };
 		39B829A418D4CAFB005A273D /* HKTSimpleControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKTSimpleControllerViewController.h; sourceTree = "<group>"; };
 		39B829A518D4CAFB005A273D /* HKTSimpleControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKTSimpleControllerViewController.m; sourceTree = "<group>"; };
 		39B9A00F18CB8C1C00F4FBF8 /* HKTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKTextView.h; sourceTree = "<group>"; };
@@ -113,6 +119,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3945D82818EC898C00F38678 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				39B9A00F18CB8C1C00F4FBF8 /* HKTextView.h */,
+				39B9A01018CB8C1C00F4FBF8 /* HKTextView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		3945D82918EC89AD00F38678 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				395DD85018C256D100420D83 /* HKNoteManager.h */,
+				395DD85118C256D100420D83 /* HKNoteManager.m */,
+				B724688018DE07430006E67C /* HKSettingsManager.h */,
+				B724688118DE07430006E67C /* HKSettingsManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		3945D82A18EC89C000F38678 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				395DD81F18C2456700420D83 /* HKMasterViewController.h */,
+				395DD82018C2456700420D83 /* HKMasterViewController.m */,
+				395DD84318C24F6100420D83 /* HKNoteController.h */,
+				395DD84418C24F6100420D83 /* HKNoteController.m */,
+				39D470C518DE732C00BFCE2E /* HKSettingTableViewController.h */,
+				39D470C618DE732C00BFCE2E /* HKSettingTableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3945D82B18EC89DF00F38678 /* Model objects */ = {
+			isa = PBXGroup;
+			children = (
+				3998A09718E7218300FC41DD /* HKTextStoage.h */,
+				3998A09818E7218300FC41DD /* HKTextStoage.m */,
+			);
+			name = "Model objects";
+			sourceTree = "<group>";
+		};
 		395DD7F918C2456700420D83 = {
 			isa = PBXGroup;
 			children = (
@@ -150,20 +198,12 @@
 				395DD81918C2456700420D83 /* Main.storyboard */,
 				395DD81618C2456700420D83 /* HKAppDelegate.h */,
 				395DD81718C2456700420D83 /* HKAppDelegate.m */,
-				395DD85018C256D100420D83 /* HKNoteManager.h */,
-				395DD85118C256D100420D83 /* HKNoteManager.m */,
-				395DD81F18C2456700420D83 /* HKMasterViewController.h */,
-				395DD82018C2456700420D83 /* HKMasterViewController.m */,
-				395DD84318C24F6100420D83 /* HKNoteController.h */,
-				395DD84418C24F6100420D83 /* HKNoteController.m */,
-				B724688018DE07430006E67C /* HKSettingsManager.h */,
-				B724688118DE07430006E67C /* HKSettingsManager.m */,
-				39D470C518DE732C00BFCE2E /* HKSettingTableViewController.h */,
-				39D470C618DE732C00BFCE2E /* HKSettingTableViewController.m */,
-				39B9A00F18CB8C1C00F4FBF8 /* HKTextView.h */,
-				39B9A01018CB8C1C00F4FBF8 /* HKTextView.m */,
-				39B829A718D4CB03005A273D /* Debug/Tmp Objects */,
+				3945D82A18EC89C000F38678 /* Controllers */,
+				3945D82B18EC89DF00F38678 /* Model objects */,
+				3945D82918EC89AD00F38678 /* Managers */,
+				3945D82818EC898C00F38678 /* Views */,
 				39B9A00D18CB7FB200F4FBF8 /* Categories */,
+				39B829A718D4CB03005A273D /* Debug/Tmp Objects */,
 				39B9A00E18CB7FC700F4FBF8 /* Resources */,
 				395DD84C18C2516000420D83 /* Database */,
 				395DD80E18C2456700420D83 /* Supporting Files */,
@@ -217,6 +257,8 @@
 			children = (
 				39B829A418D4CAFB005A273D /* HKTSimpleControllerViewController.h */,
 				39B829A518D4CAFB005A273D /* HKTSimpleControllerViewController.m */,
+				3945D82C18EC8A3800F38678 /* HKTConceptsController.h */,
+				3945D82D18EC8A3800F38678 /* HKTConceptsController.m */,
 			);
 			name = "Debug/Tmp Objects";
 			sourceTree = "<group>";
@@ -348,6 +390,8 @@
 				395DD81E18C2456700420D83 /* BulletLists.xcdatamodeld in Sources */,
 				395DD85218C256D100420D83 /* HKNoteManager.m in Sources */,
 				395DD84B18C2515400420D83 /* Owner.m in Sources */,
+				3998A09918E7218300FC41DD /* HKTextStoage.m in Sources */,
+				3945D82E18EC8A3800F38678 /* HKTConceptsController.m in Sources */,
 				395DD81818C2456700420D83 /* HKAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
