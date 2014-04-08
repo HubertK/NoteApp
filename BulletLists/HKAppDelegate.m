@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Hubert Kunnemeyer. All rights reserved.
 //
 
-#define Debug_Configuration 1
+#define Debug_Configuration 0
 
 #import "HKAppDelegate.h"
 

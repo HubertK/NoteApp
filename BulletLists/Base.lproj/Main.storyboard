@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8FJ-rN-MtE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -137,10 +137,30 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.91707261029411768" green="0.91707261029411768" blue="0.91707261029411768" alpha="1" colorSpace="calibratedRGB"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="Hubert Kunnemeyer">
+                                    <fragment>
+                                        <string key="content">	• line one
+	• line two
+	• line three
+	• line four
+	• line five</string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <font key="NSFont" size="12" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="36"/>
+                                                    <textTab alignment="left" location="72"/>
+                                                    <textTab alignment="left" location="108"/>
+                                                    <textTab alignment="left" location="144"/>
+                                                    <textTab alignment="left" location="180"/>
+                                                    <textTab alignment="left" location="216"/>
+                                                    <textTab alignment="left" location="252"/>
+                                                    <textTab alignment="left" location="288"/>
+                                                    <textTab alignment="left" location="324"/>
+                                                    <textTab alignment="left" location="360"/>
+                                                    <textTab alignment="left" location="396"/>
+                                                    <textTab alignment="left" location="432"/>
+                                                </tabStops>
+                                            </paragraphStyle>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -156,18 +176,33 @@
                                         <segments>
                                             <segment title="tab interval"/>
                                             <segment title="head indent"/>
-                                            <segment title="tab location"/>
+                                            <segment title="location"/>
                                         </segments>
                                         <color key="tintColor" red="0.66860258579999998" green="0.81649547820000001" blue="0.98557692770000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="segmentChanged:" destination="8FJ-rN-MtE" eventType="valueChanged" id="2VK-NI-xLK"/>
+                                        </connections>
                                     </segmentedControl>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rRg-Fj-j5a">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="rRg-Fj-j5a">
                                         <rect key="frame" x="18" y="62" width="284" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="sliderValueChanged:" destination="8FJ-rN-MtE" eventType="valueChanged" id="DTt-Yd-1zH"/>
+                                        </connections>
                                     </slider>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohf-at-ehF">
+                                        <rect key="frame" x="149" y="56" width="23" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.45140165441176472" green="0.45140165441176472" blue="0.45140165441176472" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="rRg-Fj-j5a" firstAttribute="top" secondItem="Bfh-iC-WFf" secondAttribute="bottom" constant="14" id="017-IO-8r0"/>
+                                    <constraint firstItem="ohf-at-ehF" firstAttribute="top" secondItem="Bfh-iC-WFf" secondAttribute="bottom" constant="8" id="2C3-dH-pTi"/>
+                                    <constraint firstAttribute="centerX" secondItem="ohf-at-ehF" secondAttribute="centerX" id="U7n-Gb-vgG"/>
                                     <constraint firstAttribute="trailing" secondItem="rRg-Fj-j5a" secondAttribute="trailing" constant="20" id="a9T-S0-aku"/>
                                     <constraint firstItem="Bfh-iC-WFf" firstAttribute="top" secondItem="w0r-S0-Uke" secondAttribute="top" constant="20" id="cjf-7z-NzP"/>
                                     <constraint firstAttribute="height" constant="95" id="qOL-ch-jlG"/>
@@ -189,6 +224,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nnP-YQ-5hk"/>
+                    <connections>
+                        <outlet property="segmentControl" destination="Bfh-iC-WFf" id="4Aa-fg-toU"/>
+                        <outlet property="slider" destination="rRg-Fj-j5a" id="bgB-Qx-xiU"/>
+                        <outlet property="textView" destination="hEb-Rr-Ddn" id="XVb-dg-CdD"/>
+                        <outlet property="valueLabel" destination="ohf-at-ehF" id="YPe-WS-EHw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VeA-rH-e9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
