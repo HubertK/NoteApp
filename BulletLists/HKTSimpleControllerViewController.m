@@ -65,12 +65,12 @@ typedef NS_ENUM(NSInteger, AnimationType){
     [[self.view layer] addSublayer:self.textLayer];
     CGFloat animationDuration = 5.0;
     CABasicAnimation *colorAnimation = [CABasicAnimation
-                                        animationWithKeyPath:@"fontSize"];
+                                        animationWithKeyPath:@"font"];
     colorAnimation.duration = animationDuration;
     colorAnimation.fillMode = kCAFillModeForwards;
     colorAnimation.removedOnCompletion = NO;
-    colorAnimation.fromValue = [NSNumber numberWithFloat:50];
-    colorAnimation.toValue = [NSNumber numberWithFloat:100];
+    colorAnimation.fromValue = [UIFont systemFontOfSize:50];
+    colorAnimation.toValue = [UIFont boldSystemFontOfSize:50];
     colorAnimation.timingFunction = [CAMediaTimingFunction
                                      functionWithName:kCAMediaTimingFunctionLinear];
     [self.textLayer addAnimation:colorAnimation
