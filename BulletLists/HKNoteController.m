@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *menuButton;
 @property (strong, nonatomic) IBOutlet HKTextView *textView;
 @property (strong, nonatomic) HKTextStoage *textStorage;
+@property (nonatomic) BOOL isPartOfList;
+@property (nonatomic) CGFloat newLineCount;
 
 @end
 
@@ -72,6 +74,8 @@
 #pragma mark HKTextView (didPressTab:)
 #pragma -mark
 - (void)textView:(HKTextView *)textView didPressTab:(id)sender{
+    _isPartOfList = YES;
+    _newLineCount = 0;
     [textView insertText:@"\t•"];
     [self.textStorage addBulletPointStyle];
 }
@@ -115,35 +119,24 @@
     }
 }
 
-
-- (BOOL)isNewLine{
-    return NO;
-}
-- (BOOL)isPartOfList{
-    return NO;
-}
-- (BOOL)shouldIndentLineFragmentInRange:(NSRange)range{
-    return NO;
-}
-- (NSInteger)indentationLevelForLineFragmentInRange:(NSRange)rangeOfLine{
-    return 0;
+- (void)textViewDidChange:(UITextView *)textView{
+    if (self.isPartOfList) {
+        if ([[textView.text substringFromIndex:textView.text.length-1]isEqualToString:@"\n"]) {
+            _newLineCount++;
+            if (_newLineCount == 2) {
+                _newLineCount = 0;
+                [self.textView setTypingAttributes:[self.textStorage defaultAttributes]];
+            }
+        }
+    }
 }
 
 
 
 
-//- (CGFloat)layoutManager:(NSLayoutManager *)layoutManager paragraphSpacingAfterGlyphAtIndex:(NSUInteger)glyphIndex withProposedLineFragmentRect:(CGRect)rect{
-//     NSLog(@"layoutspacingfrag");
-//    return 0;
-//}
-//- (CGFloat)layoutManager:(NSLayoutManager *)layoutManager paragraphSpacingBeforeGlyphAtIndex:(NSUInteger)glyphIndex withProposedLineFragmentRect:(CGRect)rect{
-//     NSLog(@"pars spacing before");
-//    return 2;
-//    
-//}
-//- (CGFloat)layoutManager:(NSLayoutManager *)layoutManager lineSpacingAfterGlyphAtIndex:(NSUInteger)glyphIndex withProposedLineFragmentRect:(CGRect)rect{
-//    return 0;
-//}
+
+
+
 
 
 

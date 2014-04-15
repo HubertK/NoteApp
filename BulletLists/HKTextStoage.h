@@ -11,5 +11,5 @@
 @interface HKTextStoage : NSTextStorage
 
 - (void)addBulletPointStyle;
-
+- (NSDictionary *)defaultAttributes;
 @end
